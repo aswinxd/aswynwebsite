@@ -21,11 +21,6 @@ async def init():
             app.register_blueprint(module.blueprint)
     
     LOGGER("aswyn.plugins").info("Successfully imported and registered all plugins.")
-    loop = asyncio.get_event_loop()
-    loop.run_in_executor(executor, app.start)  
     
 if __name__ == "__main__":
-    try:
-        asyncio.get_event_loop().run_until_complete(init())
-    except KeyboardInterrupt:
-        LOGGER("aswyn").info("Stopping the website...")
+    app.run()
