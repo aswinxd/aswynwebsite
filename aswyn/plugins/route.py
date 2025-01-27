@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint
-from aswyn import app
+
 
 blueprint = Blueprint('index', __name__)
 
