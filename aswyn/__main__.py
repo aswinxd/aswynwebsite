@@ -5,11 +5,9 @@ from concurrent.futures import ThreadPoolExecutor
 from flask import Flask
 from aswyn import LOGGER 
 from aswyn import app  
-from concurrent.futures import ThreadPoolExecutor
 from aswyn.plugins import ALL_MODULES  
-
-executor = ThreadPoolExecutor(max_workers=200)
-
+app = Flask(__name__)
+app.secret_key = os.urandom(24)
 async def init():
     plugins_path = Path("aswyn/plugins")  
     for module_path in plugins_path.glob("*.py"):
@@ -23,4 +21,4 @@ async def init():
     LOGGER("aswyn.plugins").info("Successfully imported and registered all plugins.")
     
 if __name__ == "__main__":
-    app.run()
+     app.run(app.run(host="0.0.0.0", port=5000))
