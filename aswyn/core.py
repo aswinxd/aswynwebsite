@@ -3,7 +3,7 @@ from .logger import LOGGER
 import config
 
 
-class App:
+class app:
     def __init__(self):
         LOGGER(__name__).info("Starting Flask App...")
         self.app = Flask(__name__)
@@ -17,3 +17,6 @@ class App:
 
     def stop(self):
         LOGGER(__name__).info("Stopping Flask App...")
+
+    def register_blueprint(self, blueprint):
+        self.app.register_blueprint(blueprint)
