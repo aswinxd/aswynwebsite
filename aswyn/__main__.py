@@ -21,4 +21,6 @@ async def init():
     LOGGER("aswyn.plugins").info("Successfully imported and registered all plugins.")
     
 if __name__ == "__main__":
-     app.run(app.run(host="0.0.0.0", port=5000))
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(init())
+    app.run(host="0.0.0.0", port=5000)
