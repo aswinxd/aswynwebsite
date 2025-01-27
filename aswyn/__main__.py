@@ -3,8 +3,7 @@ import importlib
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from flask import Flask
-from aswyn import LOGGER 
-from aswyn import app  
+from aswyn import LOGGER  
 from aswyn.plugins import ALL_MODULES  
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
